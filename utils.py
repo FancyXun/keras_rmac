@@ -10,14 +10,14 @@ def save_obj(obj, filename):
     f = open(filename, 'wb')
     pickle.dump(obj, f)
     f.close()
-    print "Object saved to %s." % filename
+    print ("Object saved to %s." % filename)
 
 
 def load_obj(filename):
     f = open(filename, 'rb')
     obj = pickle.load(f)
     f.close()
-    print "Object loaded from %s." % filename
+    print ("Object loaded from %s." % filename)
     return obj
 
 
