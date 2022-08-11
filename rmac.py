@@ -72,7 +72,7 @@ if __name__ == "__main__":
 
     # Load sample image
     file = utils.DATA_DIR + 'sample.jpg'
-    img = image.load_img(file)
+    img = image.image_utils.load_img(file)
 
     # Resize
     scale = utils.IMG_SIZE / max(img.size)
@@ -81,7 +81,7 @@ if __name__ == "__main__":
     img = img.resize(new_size)
 
     # Mean substraction
-    x = image.img_to_array(img)
+    x = image.image_utils.img_to_array(img)
     x = np.expand_dims(x, axis=0)
     x = utils.preprocess_image(x)
 
@@ -89,6 +89,7 @@ if __name__ == "__main__":
     Wmap, Hmap = get_size_vgg_feat_map(x.shape[3], x.shape[2])
     regions = rmac_regions(Wmap, Hmap, 3)
     print('Loading RMAC model...')
+    # (3, 683, 1024)
     model = rmac((x.shape[1], x.shape[2], x.shape[3]), len(regions))
 
     # Compute RMAC vector

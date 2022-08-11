@@ -58,3 +58,12 @@ def rmac_regions(W, H, L):
 
     regions = np.asarray(regions)
     return regions
+
+# Wmap = 1024
+# Hmap = 683
+#
+# Wmap, Hmap = get_size_vgg_feat_map(Wmap, Hmap)
+#
+# print(Wmap, Hmap)
+#
+# print(rmac_regions(Wmap, Hmap, 3))
