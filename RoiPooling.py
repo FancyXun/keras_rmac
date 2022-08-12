@@ -1,5 +1,6 @@
 from keras.layers import Layer
 import keras.backend as K
+import tensorflow as tf
 
 
 class RoiPooling(Layer):
@@ -94,7 +95,9 @@ class RoiPooling(Layer):
                                          y2 - y1, x2 - x1]
                             x_crop = img[:, :, y1:y2, x1:x2]
                             xm = K.reshape(x_crop, new_shape)
+                            # xm就是feature map 通过上面定义的区域(region)得到，shape = (none, 512 , none, none)
                             pooled_val = K.max(xm, axis=(2, 3))
+                            tf.print(xm.shape, pooled_val.shape)
                             outputs.append(pooled_val)
 
             elif self.dim_ordering == 'tf':
