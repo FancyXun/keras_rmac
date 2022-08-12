@@ -78,6 +78,8 @@ if __name__ == "__main__":
     scale = utils.IMG_SIZE / max(img.size)
     new_size = (int(np.ceil(scale * img.size[0])), int(np.ceil(scale * img.size[1])))
     print('Original size: %s, Resized image: %s' %(str(img.size), str(new_size)))
+    # 为了能使用预训练的权重，所以需要将图片resize成 (224, 224) imagenet
+    new_size = (224, 224)
     img = img.resize(new_size)
 
     # Mean substraction

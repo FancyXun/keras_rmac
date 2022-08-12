@@ -59,8 +59,8 @@ def VGG16(weights_path = None, input_shape = (3, 224, 224)):
     model = Model(img_input, x)
 
     # Load pre-trained weights if available
-    # if weights_path:
-    #     model.load_weights(weights_path)
+    if weights_path:
+        model.load_weights(weights_path)
 
     return model
 
